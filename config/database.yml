@@ -1,0 +1,16 @@
+default: &default
+  adapter: 'postgresql'
+  encoding: unicode
+  database: 'import_from_csv_db'
+  host: 'localhost'
+  port: 5432
+  pool: 5
+  timeout: 5_000
+development: 
+  <<: *default
+production:
+  <<: *default
+  pool: 30
+  timeout: 50_000
+  reaping_frequency: 50
+
